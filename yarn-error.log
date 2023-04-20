@@ -1,0 +1,76 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\marce\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @expo/vector-icons/FontAwesome
+
+PATH: 
+  C:\Program Files\Eclipse Adoptium\jdk-11.0.18.10-hotspot\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\marce\AppData\Local\Microsoft\WindowsApps;C:\Users\marce\AppData\Roaming\npm;C:\Users\marce\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Applications\Scoop\shims;C:\Users\marce\scoop\shims;C:\Users\marce\AppData\Local\JetBrains\Toolbox\scripts;C:\Android\Sdk\emulator;C:\Android\Sdk\tools;C:\Android\Sdk\tools\bin;C:\Android\Sdk\platform-tools;C:\src\flutter\bin;C:\tools\flutter\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@expo%2fvector-icons/FontAwesome: Request "https://registry.yarnpkg.com/@expo%2fvector-icons/FontAwesome" returned a 405
+      at params.callback [as _callback] (C:\Users\marce\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66154:18)
+      at self.callback (C:\Users\marce\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\marce\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Users\marce\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "client",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "test": "jest --watchAll"
+    },
+    "jest": {
+      "preset": "jest-expo"
+    },
+    "dependencies": {
+      "@expo/vector-icons": "^13.0.0",
+      "@react-navigation/native": "^6.0.2",
+      "expo": "~48.0.11",
+      "expo-font": "~11.1.1",
+      "expo-linking": "~4.0.1",
+      "expo-splash-screen": "~0.18.1",
+      "expo-status-bar": "~1.4.4",
+      "expo-system-ui": "~2.2.1",
+      "expo-web-browser": "~12.1.1",
+      "expo-router": "^1.5.2",
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-native": "0.71.6",
+      "react-native-safe-area-context": "4.5.0",
+      "react-native-screens": "~3.20.0",
+      "react-native-web": "~0.18.10"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.20.0",
+      "@types/react": "~18.0.14",
+      "jest": "^29.2.1",
+      "jest-expo": "~48.0.0",
+      "react-test-renderer": "18.2.0",
+      "typescript": "^4.9.4"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
