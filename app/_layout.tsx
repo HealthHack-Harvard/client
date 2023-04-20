@@ -45,6 +45,7 @@ function RootLayoutNav() {
         }}>
           <Stack.Screen name="login/index" />
           <Stack.Screen name="register/index" />
+          <Stack.Screen name="donations/index" />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       </ThemeProvider>

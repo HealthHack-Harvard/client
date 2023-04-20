@@ -30,7 +30,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two/index"
+        name="donations/index"
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
         }}
@@ -42,7 +42,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="four/index"
+        name="feed/index"
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
