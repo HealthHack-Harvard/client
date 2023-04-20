@@ -6,6 +6,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 
 function Icon(props: {
     name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -20,7 +21,7 @@ export default function Home() {
     const router = useRouter();
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.container}>
             <View style={{
                 backgroundColor: "transparent"
             }}>
@@ -35,9 +36,51 @@ export default function Home() {
                     <Text style={{ ...styles.headerTitle, marginLeft: 10 }}>Todo list</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.headerText}>Health overview</Text>
+                <ScrollView contentContainerStyle={{ flexGrow: 1, marginTop: 10 }}>
+                    {
+                        [
+                            {
+                                title: "Take medicines",
+                                done: false
+                            },
+                            {
+                                title: "Monitor diabetes",
+                                done: true
+                            },
+                            {
+                                title: "Monitor blood pressure",
+                                done: false
+                            }
+                        ].map(({
+                            title, done
+                        }, index) =>
+                            <View key={title+index} style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                                padding: 10,
+                                backgroundColor: done ? "#6df09f" : "#dc6b728a",
+                                borderRadius: 10, marginBottom: 15,
+                                shadowColor: "#000",
+                                shadowOffset: {
+                                    width: 2,
+                                    height: 2,
+                                },
+                                shadowOpacity: 0.5,
+                            }}>
+                                <Text style={{
+                                    color: "#000",
+                                    fontSize: 16,
+                                }}>
+                                    {title}
+                                </Text>
+                            </View>
+                        )
+                    }
+                </ScrollView>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 

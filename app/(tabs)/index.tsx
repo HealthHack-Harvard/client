@@ -9,7 +9,7 @@ import Fire from "../../assets/images/fire";
 import Medication from "../../assets/images/medication";
 import Hospital from "../../assets/images/hospital";
 import Board from "../../assets/images/board";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 
 function Icon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -26,7 +26,20 @@ export default function Home() {
   return (
     <ScrollView contentContainerStyle={{ ...styles.container, flexGrow: 1 }}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Hey, Bruno!</Text>
+        <View style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          backgroundColor: "transparent",
+          width: "100%",
+          justifyContent: "space-between"
+        }}>
+          <Text style={styles.headerTitle}>Hey, Bruno!</Text>
+
+          <TouchableOpacity onPress={() => router.push("/login")}>
+            <Icon name="sign-out" size={20} color="#00000080" />
+          </TouchableOpacity>
+        </View>
 
         <Text style={styles.headerText}>Health overview</Text>
       </View>
@@ -40,43 +53,84 @@ export default function Home() {
         </View>
       </TouchableOpacity>
 
-      <View style={{
-        ...styles.actions,
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{
+        // ...styles.actions,
         display: 'flex',
-        flexDirection: 'row',
-        padding: 0,
+        // flexDirection: 'row',
         marginBottom: 15,
+        paddingBottom: 10,
+        width: "100%",
+      }} contentContainerStyle={{
+        gap: 10,
       }}>
-        <View style={styles.actionButton}>
-          <View style={styles.iconContainer}>
-            <Icon style={styles.actionIcon} name="heart" size={48} color="#DC6B72" />
-          </View>
-          <Text style={{
-            textAlign: "center"
-          }}>Managment Console</Text>
-        </View>
+        <Link href={"management-console"} style={{
+          marginRight: -15,
+        }}>
+          <View style={styles.actionButton}>
+            <View style={styles.iconContainer}>
+              <Icon style={styles.actionIcon} name="heart" size={48} color="#DC6B72" />
+            </View>
 
-        <View style={styles.actionButton}>
-          <View style={styles.iconContainer}>
-            <Icon style={styles.actionIcon} name="inbox" size={48} color="#DC6B72" />
+            <Text>Managment Console</Text>
           </View>
-          <Text>Donations</Text>
-        </View>
+        </Link>
 
-        <View style={styles.actionButton}>
-          <View style={styles.iconContainer}>
-            <Icon style={styles.actionIcon} name="users" size={48} color="#DC6B72" />
-          </View>
-          <Text>Feed</Text>
-        </View>
+        <Link href={"donations"} >
+          <View style={styles.actionButton}>
+            <View style={styles.iconContainer}>
+              <Icon style={styles.actionIcon} name="inbox" size={48} color="#DC6B72" />
+            </View>
 
-        <View style={styles.actionButton}>
-          <View style={styles.iconContainer}>
-            <Icon style={styles.actionIcon} name="question" size={48} color="#DC6B72" />
+            <Text>Donations</Text>
           </View>
-          <Text>Questions</Text>
-        </View>
-      </View>
+        </Link>
+
+        <Link href={"feed"}>
+          <View style={styles.actionButton}>
+            <View style={styles.iconContainer}>
+              <Icon style={styles.actionIcon} name="users" size={48} color="#DC6B72" />
+            </View>
+
+            <Text>Feed</Text>
+          </View>
+        </Link>
+
+        <Link href={"questions"} style={{
+          marginRight: 15,
+          width: "20%"
+        }}>
+          <View style={styles.actionButton}>
+            <View style={styles.iconContainer}>
+              <Icon style={styles.actionIcon} name="question" size={48} color="#DC6B72" />
+            </View>
+            <Text>Questions</Text>
+          </View>
+        </Link>
+
+        {/* <Link href={"donations"} style={{
+          width: "20%",
+          marginRight: 10
+        }}>
+          <View style={styles.actionButton}>
+            
+        </Link>
+
+        <Link href={"feed"} style={{
+          width: "25%",
+          borderColor: "blue",
+          borderWidth: 1
+        }}>
+          
+        </Link>
+
+        <Link href={"questions"} style={{
+          width: "25%",
+          borderColor: "blue",
+          borderWidth: 1
+        }}>
+          
+        </Link> */}
+      </ScrollView>
 
       <View style={{
         paddingVertical: 20,

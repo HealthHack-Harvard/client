@@ -26,34 +26,44 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }: {
+            color: string;
+          }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <Tabs.Screen
         name="donations/index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
+          tabBarIcon: ({ color }: {
+            color: string;
+          }) => <TabBarIcon name="heart" color={color} />,
         }}
       />
       <Tabs.Screen
         name="three/index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
+          tabBarIcon: ({ color }: {
+            color: string;
+          }) => <TabBarIcon name="plus" color={color} />,
         }}
       />
       <Tabs.Screen
         name="feed/index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
+          tabBarIcon: ({ color }: {
+            color: string;
+          }) => <TabBarIcon name="users" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="five/index"
+        name="questions/index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="question" color={color} />,
+          tabBarIcon: ({ color }: {
+            color: string;
+          }) => <TabBarIcon name="question" color={color} />,
         }}
       />
-    </Tabs >
+    </Tabs>
   );
 }
 

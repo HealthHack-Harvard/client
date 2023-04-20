@@ -52,19 +52,18 @@ export const styles = StyleSheet.create({
 
     actions: {
         backgroundColor: "transparent",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         width: "100%",
     },
     actionButton: {
         display: "flex",
         alignItems: "center",
-        width: "23%",
-        height: 120,
+        width: "100%",
         backgroundColor: "transparent",
     },
     iconContainer: {
         display: "flex",
-        width: "100%",
+        width: 100,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#fff",

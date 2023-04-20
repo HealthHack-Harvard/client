@@ -3,16 +3,29 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 50,
+        paddingBottom: 0,
+        paddingHorizontal: 15,
+        backgroundColor: "#f3f3f3",
+    },
+    headerTitle: {
+        fontSize: 38,
+        fontWeight: "400",
+        marginBottom: 10,
+    },
+    headerText: {
+        fontSize: 18,
+    },
+    titleComp: {
+        fontSize: 16,
+        marginBottom: 15,
+        textAlign: "center",
+    },
+    topRow: {
+        display: "flex",
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: "bold",
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: "80%",
+        gap: 15,
+        backgroundColor: "transparent",
     },
 });
