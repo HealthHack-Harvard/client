@@ -1,6 +1,7 @@
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { StatusBar } from "expo-status-bar";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -16,6 +17,10 @@ export default function TabLayout() {
         tabBarActiveTintColor: "#DC6B72",
         tabBarShowLabel: false,
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#f4f4f4",
+          borderTopColor: "transparent",
+        }
       }}
     >
       <Tabs.Screen
@@ -48,7 +53,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="question" color={color} />,
         }}
       />
-    </Tabs>
+    </Tabs >
   );
 }
 
