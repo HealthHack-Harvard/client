@@ -5,7 +5,7 @@ import { styles } from "./styles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, Link } from "expo-router";
 import { useState } from "react";
 import Medical from "../../../assets/images/MedIcon";
 import Building from "../../../assets/images/buildingIcon";
@@ -30,7 +30,20 @@ export default function Home() {
                 backgroundColor: "transparent",
                 marginBottom: 35,
             }}>
-                <Text style={styles.headerTitle}>Management Console</Text>
+                <View style={{backgroundColor: "transparent"}}>
+                    <TouchableOpacity style={{
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "row",
+                        gap: 10,
+                    }} onPress={() => router.back()}>
+                        <Icon name="chevron-left" color="#000000" size={28} />
+                        <Text style={styles.headerTitle}>Management Console</Text>
+                    </TouchableOpacity>
+                    
+                </View>
+                
                 <Text style={styles.headerText}>Give us the detail about your treatment, and we'll do the rest!</Text>
             </View>
             <ScrollView style={{
@@ -43,7 +56,7 @@ export default function Home() {
                 width: "100%",
                 gap: 20,
             }} showsVerticalScrollIndicator={false}>
-                <View style={{
+                <TouchableOpacity style={{
                     width: "90%",
                     display: "flex",
                     flexDirection: "column",
@@ -53,10 +66,12 @@ export default function Home() {
                     height: 200,
                     borderRadius: 20,
                     gap: 20,
-                }}>
+                }} onPress={() => {router.push("/medication")}}>
                     <Medical/>
                     <Text style={styles.titleComp}>Medication</Text>
-                </View>
+                </TouchableOpacity>
+
+                
                 <View style={{
                     width: "90%",
                     display: "flex",

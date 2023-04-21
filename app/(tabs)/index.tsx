@@ -67,17 +67,15 @@ export default function Home() {
         paddingBottom: 10,
         width: "100%",
       }} contentContainerStyle={{
-        gap: 10,
+        gap: 15,
       }}>
-        <Link href={"management-console"} style={{
-          marginRight: -15,
-        }}>
+        <Link href={"management-console"}>
           <View style={styles.actionButton}>
             <View style={styles.iconContainer}>
               <Icon style={styles.actionIcon} name="heart" size={48} color="#DC6B72" />
             </View>
-
-            <Text>Managment Console</Text>
+              <Text>Managment</Text>
+              <Text>Console</Text>
           </View>
         </Link>
 

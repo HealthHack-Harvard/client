@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 38,
         fontWeight: "400",
-        marginBottom: 10,
+        marginBottom: 5,
     },
     headerText: {
         fontSize: 18,
