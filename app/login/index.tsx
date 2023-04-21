@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, Image, KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, Button, Image, KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity} from 'react-native';
 import { Link, useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 import { useState } from 'react';
 
@@ -13,6 +15,28 @@ export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const storeData = async (value) => {
+        try {
+          await AsyncStorage.setItem('@token', value)
+        } catch (e) {
+          // saving error
+        }
+    }
+
+    const auth = async () => {
+        await axios.post("http://10.254.18.177:3001/v1/user/auth", {
+            email: email,
+            password: password
+        }).then((response) => {
+            console.log("response", response.data.token)
+            storeData(response.data.token)
+            router.push("/(tabs)") 
+        }).catch((error) => {
+            console.log("error", error)
+            alert(error)
+        })
+    }
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={{
@@ -41,7 +65,7 @@ export default function Login() {
                 <ExternalLink href='https://google.com' style={styles.forgot}>Forgot password?</ExternalLink>
 
                 <TouchableOpacity style={styles.button} onPress={() => {
-                    router.replace('/(tabs)');
+                    auth();
                     // Alert.alert('Login', email + password);
                 }}>
                     <Text style={styles.buttonText}>Login</Text>

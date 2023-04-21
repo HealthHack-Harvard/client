@@ -10,6 +10,9 @@ import Medication from "../../assets/images/medication";
 import Hospital from "../../assets/images/hospital";
 import Board from "../../assets/images/board";
 import { Link, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from "axios";
 
 function Icon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -22,6 +25,38 @@ function Icon(props: {
 
 export default function Home() {
   const router = useRouter();
+
+  const [user, setUser] = useState({
+    name: "",
+  })
+
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@token')
+      if(value !== null) {
+        // value previously stored
+        return value
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  async function getPerson() {
+    await getData().then(async (token) => {
+      const response = await axios.get(`http://10.254.18.177:3001/v1/user/getOne/${token}`);
+
+      console.log("response", response.data)
+
+      setUser(response.data)
+
+      console.log("teste", user)
+    })
+  } 
+
+  useEffect(() => {
+    getPerson()
+  }, [])
 
   return (
     <ScrollView contentContainerStyle={{ ...styles.container, flexGrow: 1 }}>
@@ -39,7 +74,7 @@ export default function Home() {
             flexDirection: "column",
           }} onPress={() => router.push("profile")}>
             <Icon name="user-circle" size={32} color="#00000080" />
-            <Text style={styles.headerTitle}>Hey, Bruno!</Text>
+            <Text style={styles.headerTitle}>Hey, {user.name.split(" ")[0]}!</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => router.push("/login")}>
