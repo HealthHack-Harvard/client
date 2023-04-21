@@ -18,3 +18,4 @@ web-build/
 gpt/.env
 gpt/gpt.js
 gpt/package-lock.json
+.env
