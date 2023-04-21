@@ -2,9 +2,10 @@ import { Text, View } from "../../components/Themed";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
-import { RadioButton } from 'react-native-paper';
+import { TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
 import { styles } from './styles';
+import { RadioButton } from 'react-native-paper';
+import { Link, useRouter } from "expo-router";
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -24,9 +25,7 @@ export default function addPost() {
   return (
       <KeyboardAvoidingView style={styles.container}>
           <View style={styles.header}>
-            <View style={styles.viewTittle}>
-              <Text style={styles.tittle}>Create Post</Text>
-            </View>
+            <Text style={styles.tittle}>Create Post</Text>
             <Text style={styles.subhead}>How does the post feed work?</Text>
             <Text style={styles.textHead}>As soon as you click send, your post will be available to anyone on the platform, creating a large support network of experiences, achievements and outbursts.</Text>
           </View>

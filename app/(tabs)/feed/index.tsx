@@ -2,14 +2,19 @@ import { Text, View } from "../../../components/Themed";
 import EditScreenInfo from "../../../components/EditScreenInfo";
 
 import { StatusBar } from 'expo-status-bar';
-import { KeyboardAvoidingView, TouchableOpacity, ScrollView, Button, Alert, TouchableHighlight, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, TouchableOpacity, ScrollView, Button, Alert, TouchableHighlight, StyleSheet, Platform } from 'react-native';
 
 import { styles } from './styles';
 import Card from '../../../components/card/index';
 
 import { Entypo } from '@expo/vector-icons';
 
+import { useNavigation, useRouter } from "expo-router";
+
 export default function TabFourScreen() {
+
+  const router = useRouter()
+
   return (
       <View style={styles.container}>
           <View style={styles.header}>
@@ -22,7 +27,7 @@ export default function TabFourScreen() {
           </View>
 
           <View style={styles.addButton}>
-            <TouchableOpacity style={styles.addPostButton}>
+            <TouchableOpacity style={styles.addPostButton} onPress={() => {router.push("/addPost")}}>
                 <Text style={styles.textButton}>Create Publication</Text>
             </TouchableOpacity>
           </View>

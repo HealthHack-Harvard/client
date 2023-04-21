@@ -31,7 +31,6 @@ export const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: '200',
       opacity: 0.75,
-      fontWeight: 'bold',
     },
 
     textHead:{

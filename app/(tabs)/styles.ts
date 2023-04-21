@@ -58,12 +58,13 @@ export const styles = StyleSheet.create({
     actionButton: {
         display: "flex",
         alignItems: "center",
-        width: "100%",
+        width: "100%",  
         backgroundColor: "transparent",
     },
     iconContainer: {
         display: "flex",
-        width: 100,
+        width: 90,
+        height: 90,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#fff",

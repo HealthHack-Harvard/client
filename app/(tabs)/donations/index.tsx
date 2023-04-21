@@ -34,7 +34,17 @@ export default function Home() {
         backgroundColor: "transparent",
         marginBottom: 35,
       }}>
-        <Text style={styles.headerTitle}>Donation Center</Text>
+        <TouchableOpacity style={{
+          backgroundColor: "transparent",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          gap: 10,
+        }} onPress={() => router.back()}>
+          <Icon name="chevron-left" color="#000000" size={28}/>
+          <Text style={styles.headerTitle}>Donation Center</Text>
+        </TouchableOpacity>
+        
         <Text style={styles.headerText}>"Help to be helped"</Text>
       </View>
       <ScrollView style={{
