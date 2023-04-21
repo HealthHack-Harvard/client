@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'transparent',
         marginTop: 20,
+        width: '100%',
     },
     boardPerfilEdit: {
         display: 'flex',
@@ -36,7 +37,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: '90%',
         borderRadius: 15,
-        marginTop: 15,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "transparent",
     },
     badge: {
+        padding: 1,
         width: 80,
         height: 80,
         borderRadius: 40,

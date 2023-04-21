@@ -54,7 +54,7 @@ export default function Home() {
         <Text style={styles.todoText}>To do's</Text>
 
         <View style={styles.todoRight}>
-          <Text style={styles.todoNotification}>4</Text>
+          <Text style={styles.todoNotification}>3</Text>
           <Icon name="chevron-right" size={16} color="#2e2e2e" />
         </View>
       </TouchableOpacity>
