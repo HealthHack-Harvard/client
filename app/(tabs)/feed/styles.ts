@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
 
     header:{
         display: 'flex',
-        width: '80%',
+        width: '85%',
         flexDirection: 'row',
         alignItems: "center",
         justifyContent:"flex-start",

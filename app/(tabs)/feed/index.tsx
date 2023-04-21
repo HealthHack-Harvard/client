@@ -21,9 +21,6 @@ function Icon(props: {
 }
 
 export default function TabFourScreen() {
-
-  
-
   const router = useRouter()
 
   return (

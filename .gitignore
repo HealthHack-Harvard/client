@@ -18,4 +18,6 @@ web-build/
 gpt/.env
 gpt/gpt.js
 gpt/package-lock.json
+package-lock.json
+yarn.lock
 .env
