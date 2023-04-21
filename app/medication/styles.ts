@@ -2,8 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'transparent',
+        backgroundColor: '#f3f3f3',
+        marginTop: 50,
+        marginBottom: 75,
     },
     title: {
         fontSize: 32,
@@ -25,9 +26,45 @@ export const styles = StyleSheet.create({
         marginTop: 15,
     },
     medTitle: {
-        fontSize: 38,
+        backgroundColor: 'transparent',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 15,
+    },
+    boardMed: {
+        backgroundColor: '#fff',
+        width: '90%',
+        borderRadius: 15,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    name: {
+        height: "20%",
+        width: "100%",
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    tableHeader: {
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+    },
+    containerTable: {
+        borderRadius: 15,
+        backgroundColor: '#fff',
+    },
+    line: {
+        backgroundColor: '#fff',
+        gap: 25,
+    },
+    nameTable: {
+        color: '#DC6B72',
         fontWeight: 'bold',
-        marginTop: 25,
-
+        fontSize: 18,
     }
 });
