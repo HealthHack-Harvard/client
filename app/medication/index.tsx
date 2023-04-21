@@ -7,10 +7,43 @@ import { ExternalLink } from '../../components/ExternalLink';
 import { Icon } from '../../components/BackIcon';
 import Plus from '../../assets/images/plusIcon';
 import { DataTable } from 'react-native-paper';
+import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios'
 
 export default function Medication() {
 
     const router = useRouter();
+
+    const [meds, setMeds] = useState([])
+
+    const getData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('@id')
+            if(value !== null) {
+                // value previously stored
+                return value
+            }
+        } catch(e) {
+            // error reading value
+        }
+    }
+
+    async function getMeds() {
+        await getData().then(async (id) => {
+            console.log(id)
+
+            const response = await axios.get("http://10.254.18.177:3001/v1/medicine/getByUser/" + id);
+
+            console.log("response", response.data)
+
+            setMeds(response.data)
+        })
+    }
+
+    useEffect(() => {
+        getMeds()
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -53,9 +86,21 @@ export default function Medication() {
                             <DataTable.Title><Text style={styles.nameTable}>Dosage</Text></DataTable.Title>
                             <DataTable.Title><Text style={styles.nameTable}>Obs.</Text></DataTable.Title>
                         </DataTable.Header>
-                        <DataTable.Row style={styles.line}>
+                        {
+                            meds.map((med) => {
+                                return (
+                                    <DataTable.Row style={styles.line}>
+                                        <DataTable.Cell>{JSON.parse(med.time).map((time) => {console.log(time); return (<Text>{time}</Text>)})}</DataTable.Cell>
+                                        <DataTable.Cell><Text>{med.name}</Text></DataTable.Cell>
+                                        <DataTable.Cell><Text>{med.dosage}</Text></DataTable.Cell>
+                                        <DataTable.Cell><Text>{med.observations}</Text></DataTable.Cell>
+                                    </DataTable.Row>
+                                )
+                            })
+                        }
+                        {/* <DataTable.Row style={styles.line}>
                             <DataTable.Cell><Text>2pm</Text></DataTable.Cell>
-                            <DataTable.Cell><Text>Esc</Text></DataTable.Cell>
+                            <DataTable.Cell><Text></Text></DataTable.Cell>
                             <DataTable.Cell><Text>10ml</Text></DataTable.Cell>
                             <DataTable.Cell><Text>after a meal</Text></DataTable.Cell>
                         </DataTable.Row>
@@ -77,7 +122,7 @@ export default function Medication() {
                             <DataTable.Cell><Text>Esc</Text></DataTable.Cell>
                             <DataTable.Cell><Text>10ml</Text></DataTable.Cell>
                             <DataTable.Cell><Text>after a meal</Text></DataTable.Cell>
-                        </DataTable.Row>
+                        </DataTable.Row> */}
                     </DataTable>
                 </View>
             </View>

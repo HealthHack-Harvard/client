@@ -5,9 +5,34 @@ import { Link, useRouter } from 'expo-router';
 import { styles } from './styles';
 import { Text, View } from '../../components/Themed';
 import { ExternalLink } from '../../components/ExternalLink';
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function Register() {
     const router = useRouter();
+
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [pathology, setPathology] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const register = async () => {
+        await axios.post("http://10.254.18.177:3001/v1/user/create", {
+            name: name + lastName,
+            email: email,
+            password: password,
+            pathology: pathology
+        }).then((response) => {
+            console.log("response", response.data)
+            router.push("/login")
+        }
+        ).catch((error) => {
+            console.log("error", error)
+            alert(error)
+        }
+        )
+    }
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={{
@@ -24,27 +49,27 @@ export default function Register() {
             <View style={styles.form}>
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>First name:</Text>
-                    <TextInput style={styles.input} placeholder='Victor' />
+                    <TextInput style={styles.input} placeholder='Victor' onChangeText={setName}/>
                 </View>
 
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>Last name:</Text>
-                    <TextInput style={styles.input} placeholder='Carvalho' />
+                    <TextInput style={styles.input} placeholder='Carvalho' onChangeText={setLastName}/>
                 </View>
 
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>CardioVascular Disease:</Text>
-                    <TextInput style={styles.input} placeholder='Your diagnosis' />
+                    <TextInput style={styles.input} placeholder='Your diagnosis' onChangeText={setPathology}/>
                 </View>
 
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>Email:</Text>
-                    <TextInput style={styles.input} placeholder='victor.carvalho@email.com' />
+                    <TextInput style={styles.input} placeholder='victor.carvalho@email.com' onChangeText={setEmail}/>
                 </View>
 
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>Password:</Text>
-                    <TextInput style={styles.input} placeholder='Your password' />
+                    <TextInput style={styles.input} placeholder='Your password' onChangeText={setPassword}/>
                 </View>
 
                 <View style={styles.inputContainer}>
@@ -53,7 +78,7 @@ export default function Register() {
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={() => {
-                    router.replace('/login');
+                    register()
                 }}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>

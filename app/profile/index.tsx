@@ -20,6 +20,9 @@ export default function Profile() {
 
     const [user, setUser] = useState({
         name: "",
+        email: "",
+        pathology: "",
+        streaks: 0,
       })
     
       const getData = async () => {
@@ -81,17 +84,17 @@ export default function Profile() {
                         }}>{user.name}</Text>
                     </View>
                     <View style={{marginTop:10, marginBottom:5}}>
-                        <Text><Text style={{fontWeight: "bold"}}>Email: </Text>brunomeira@gmail.com</Text>
+                        <Text><Text style={{fontWeight: "bold"}}>Email: </Text>{user.email}</Text>
                     </View>
                     <View style={{marginTop:5, marginBottom:10}}>
-                        <Text><Text style={{fontWeight: "bold"}}>Pathology: </Text>Peripheral arterial disease</Text>
+                        <Text><Text style={{fontWeight: "bold"}}>Pathology: </Text>{user.pathology}</Text>
                     </View>
                 </View>
                 <View style={styles.boardStreak}>
                     <View style={{marginTop: 10}}>
                         <Fire/>
                     </View>
-                    <Text style={{fontSize: 18, marginTop: 12, marginBottom:8}}>You have a <Text style={{fontWeight: "bold"}}>10 day</Text> streak!</Text>
+                    <Text style={{fontSize: 18, marginTop: 12, marginBottom:8}}>You have a <Text style={{fontWeight: "bold"}}>{user.streaks} day</Text> streak!</Text>
                     <Text style={{fontSize: 14, textAlign: "center", marginBottom: 10}}>Keep upgrading your treatment to increase your streak and earn recognition badges!</Text>
                 </View>
                 <View style={styles.boardStreak}>
