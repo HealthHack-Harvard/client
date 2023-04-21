@@ -16,9 +16,9 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const storeData = async (value) => {
+    const storeData = async (key, value) => {
         try {
-          await AsyncStorage.setItem('@token', value)
+          await AsyncStorage.setItem(key, value)
         } catch (e) {
           // saving error
         }
@@ -29,8 +29,9 @@ export default function Login() {
             email: email,
             password: password
         }).then((response) => {
-            console.log("response", response.data.token)
-            storeData(response.data.token)
+            console.log("response", response.data)
+            storeData("@token", response.data.token)
+            storeData("@id", response.data.id)
             router.push("/(tabs)") 
         }).catch((error) => {
             console.log("error", error)
