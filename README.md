@@ -2,7 +2,21 @@
 # CardioVasc
 
 ## Introduction - The problem
+Cardiovascular diseases are the main cause of morbidity and mortality in Latin America and the 
+Caribbean, affecting over 30.3 million people in the region. In 2019, 2.8 million new cases of 
+cardiovascular diseases were registered, and 962,309 deaths were attributed to these diagnoses. Since 
+1990, most of these cases and deaths have been related to ischemic heart disease, which have, in addition, 
+increased as demographic and epidemiological transitions unfold. However, stroke and peripheral artery 
+disease also play a significant role in the burden of CVD throughout the region.
+<br>
 
+Several countries have started to implement policies pertaining CVD prevention. Notwithstanding, most 
+countries in the region lack effective surveillance systems to identify and monitor at-risk population, as 
+well as to measure or evaluate inequities. Similarly, there are significant care gaps for primary and 
+secondary prevention, diagnosis and treatment, and inadequate strategies to measure quality of care 
+given to patients. Moreso, only four countries within LAC currently have legislation about CVD medicines 
+at affordable prices or at no cost for patients, and countries within LAC present the 
+“highest non-communicable disease burden associated with physical inactivity”.
 <br>
 
 ## Our solution
