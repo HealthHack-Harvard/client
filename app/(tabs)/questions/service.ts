@@ -1,12 +1,12 @@
-const openailib = require("openai");
+import { Configuration, OpenAIApi } from "openai";
 
-const configuration = new openailib.Configuration({
+const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new openailib.OpenAIApi(configuration);
+const openai = new OpenAIApi(configuration);
 
-const solveQuestion = async (content) => {
+export const solveQuestion = async (content) => {
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
@@ -25,6 +25,3 @@ const solveQuestion = async (content) => {
     return completion.data.choices[0].message.content;
 }
 
-module.exports = {
-    solveQuestion
-}

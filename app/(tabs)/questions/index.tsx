@@ -6,9 +6,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 import { useRouter } from "expo-router";
-import { useState } from "react";
-import { solveQuestion } from "../../../services/gpt";
+import { useState, useRef, RefObject } from "react";
 import { ActivityIndicator } from "react-native-paper";
+import { solveQuestion } from "./service";
 
 function Icon(props: {
 	name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -22,9 +22,15 @@ function Icon(props: {
 export default function Home() {
 	const router = useRouter();
 
+	const viewRef: RefObject<ScrollView> = useRef(null);
+
+	const handleScrollToEnd = () => {
+		viewRef.current?.scrollToEnd({ animated: true });
+	};
+
 	const [loading, setLoading] = useState(false);
 
-	const [question, setQuestion] = useState("Como posso me prevenir de uma doença cardíaca?");
+	const [question, setQuestion] = useState("");
 	const [answer, setAnswer] = useState("");
 
 	const makeQuestion = async () => {
@@ -35,6 +41,7 @@ export default function Home() {
 		if (response) {
 			setAnswer(response);
 			setLoading(false);
+			handleScrollToEnd();
 		}
 	}
 
@@ -82,6 +89,7 @@ export default function Home() {
 				<TextInput
 					textAlign="left"
 					style={{
+						backgroundColor: "white",
 						borderColor: "gray",
 						borderWidth: 1,
 						borderRadius: 10,
@@ -114,7 +122,7 @@ export default function Home() {
 
 				<View style={{
 					backgroundColor: "transparent",
-				}}>
+				}} ref={viewRef}>
 					{question && answer ? (
 						<>
 							<Text style={{
