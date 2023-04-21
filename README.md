@@ -1,8 +1,9 @@
 
 # CardioVasc
 
-## Intro
+## Introduction - The problem
 
+<br>
 
 ## Our solution
 CardioVasc is a mobile app created to help population to manage cardiovascular disease treatments. 
@@ -35,8 +36,9 @@ in something more gentler to deal with, at Polygon Blockchain, where the Smart C
 
 ## File tree
 ```
-  -client
-  -server
+  - client
+  - server
+  - smart-contracts
 ```
 <br>
 

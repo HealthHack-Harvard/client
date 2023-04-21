@@ -44,6 +44,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    icon:{
+        marginRight:10,
+
+    },
+
     textButton:{
         fontSize: 18,
         fontWeight: '400',

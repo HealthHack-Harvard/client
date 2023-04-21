@@ -5,16 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
 import { styles } from './styles';
 import { RadioButton } from 'react-native-paper';
-import { Link, useRouter } from "expo-router";
-
-import { Entypo } from '@expo/vector-icons';
 
 export default function addPost() {
-
-  const data = [
-    { value: 'Yes' },
-    { value: 'No' },
-  ];
 
   const [value, setValue] = React.useState('y');
 
