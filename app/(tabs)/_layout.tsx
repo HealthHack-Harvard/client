@@ -40,7 +40,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="three/index"
+        name="management-console/index"
         options={{
           tabBarIcon: ({ color }: {
             color: string;

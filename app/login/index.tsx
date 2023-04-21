@@ -75,7 +75,7 @@ export default function Login() {
 
             </View>
 
-            <StatusBar style={'auto'} />
+            <StatusBar style={'dark'} />
         </ScrollView>
     );
 }

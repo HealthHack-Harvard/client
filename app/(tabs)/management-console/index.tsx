@@ -1,15 +1,15 @@
 import { BackHandler, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import EditScreenInfo from "../../components/EditScreenInfo";
-import { Text, View } from "../../components/Themed";
+import EditScreenInfo from "../../../components/EditScreenInfo";
+import { Text, View } from "../../../components/Themed";
 import { styles } from "./styles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import Medical from "../../assets/images/MedIcon";
-import Building from "../../assets/images/buildingIcon";
-import Plan from "../../assets/images/planIcon";
+import Medical from "../../../assets/images/MedIcon";
+import Building from "../../../assets/images/buildingIcon";
+import Plan from "../../../assets/images/planIcon";
 
 function Icon(props: {
     name: React.ComponentProps<typeof FontAwesome>["name"];

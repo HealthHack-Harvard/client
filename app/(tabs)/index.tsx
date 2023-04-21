@@ -29,12 +29,18 @@ export default function Home() {
         <View style={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
           backgroundColor: "transparent",
           width: "100%",
           justifyContent: "space-between"
         }}>
-          <Text style={styles.headerTitle}>Hey, Bruno!</Text>
+          <TouchableOpacity style={{
+            backgroundColor: "transparent",
+            display: "flex",
+            flexDirection: "column",
+          }} onPress={() => router.push("profile")}>
+            <Icon name="user-circle" size={32} color="#00000080" />
+            <Text style={styles.headerTitle}>Hey, Bruno!</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity onPress={() => router.push("/login")}>
             <Icon name="sign-out" size={20} color="#00000080" />

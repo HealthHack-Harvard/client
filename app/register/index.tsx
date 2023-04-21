@@ -69,7 +69,7 @@ export default function Register() {
                 </Text>
             </View>
 
-            <StatusBar style={'auto'} />
+            <StatusBar style={'dark'} />
         </ScrollView>
     );
 }

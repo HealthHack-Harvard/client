@@ -1,18 +1,22 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { Link, Stack, useRouter } from 'expo-router';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 
 export default function NotFoundScreen() {
+  const router = useRouter()
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.container}>
-        <Text style={styles.title}>This screen doesn't exist.</Text>
+        <Text style={styles.title}>404</Text>
+        <Text style={{
+          fontSize: 24,
+        }}>Page not found!</Text>
 
-        <Link href="/" style={styles.link}>
-          <Text style={styles.linkText}>Go to home screen!</Text>
-        </Link>
+        <TouchableOpacity onPress={() => router.back()} style={styles.link}>
+          <Text style={styles.linkText}>Return</Text>
+        </TouchableOpacity>
       </View>
     </>
   );
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 48,
     fontWeight: 'bold',
   },
   link: {
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   linkText: {
-    fontSize: 14,
+    fontSize: 18,
     color: '#2e78b7',
   },
 });
